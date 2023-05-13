@@ -23,4 +23,27 @@ public class personaServicio {
         return p;
     }
 
+    public persona buscarPersona(String nombre) {
+        for (persona persona : p) {
+            if (persona.getNombre().equals(nombre)) {
+                return persona;
+            }
+        }
+        return null;
+    }
+
+    public void eliminarPersona(String nombre) {
+        p.removeIf(persona -> persona.getNombre().equals(nombre));
+    }
+
+    public void editarNombrePersona(String nombre, String nuevoNombre) {
+        persona personaEncontrada = buscarPersona(nombre);
+        if (personaEncontrada != null) {
+            personaEncontrada.setNombre(nuevoNombre);
+        }
+    }
+
+    public void agregarPersona(persona nuevaPersona) {
+        p.add(nuevaPersona);
+    }
 }

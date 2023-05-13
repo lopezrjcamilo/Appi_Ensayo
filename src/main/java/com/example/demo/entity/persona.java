@@ -48,4 +48,12 @@ public class persona {
     //
 
 
+    @Override
+    public String toString() {
+        return "persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                '}';
+    }
 }
