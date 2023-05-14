@@ -15,29 +15,28 @@ public class controladorpersona {
         this.servicio = servicio;
     }
 
-    @GetMapping("/listarPersonas")
-    public List<persona> listaPersona(){
-        return servicio.listaPersonas();
+    @GetMapping("/listarPersonasPorCategoria/{categoria}")
+    public List<persona> listaPersonaPorCategoria(@PathVariable String categoria) {
+        return servicio.listaPersonasPorCategoria(categoria);
     }
 
-    @GetMapping("/buscarPersona/{nombre}")
-    public persona buscarPersona(@PathVariable String nombre) {
-        return servicio.buscarPersona(nombre);
+    @GetMapping("/buscarPersonaPorCategoria/{categoria}/{nombre}")
+    public persona buscarPersonaPorCategoria(@PathVariable String categoria, @PathVariable String nombre) {
+        return servicio.buscarPersonaPorCategoria(categoria, nombre);
     }
 
-    @DeleteMapping("/eliminarPersona/{nombre}")
-    public void eliminarPersona(@PathVariable String nombre) {
-        servicio.eliminarPersona(nombre);
+    @DeleteMapping("/eliminarPersonaPorCategoria/{categoria}/{nombre}")
+    public void eliminarPersonaPorCategoria(@PathVariable String categoria, @PathVariable String nombre) {
+        servicio.eliminarPersonaPorCategoria(categoria, nombre);
     }
 
-    @PutMapping("/editarPersona/{nombre}/{nuevoNombre}")
-    public  void editarPersona(@PathVariable String nombre, @PathVariable String nuevoNombre) {
-        servicio.editarNombrePersona(nombre, nuevoNombre);
+    @PutMapping("/editarPersonaPorCategoria/{categoria}/{nombre}/{nuevoNombre}")
+    public void editarPersonaPorCategoria(@PathVariable String categoria, @PathVariable String nombre, @PathVariable String nuevoNombre) {
+        servicio.editarNombrePersonaPorCategoria(categoria, nombre, nuevoNombre);
     }
 
-    @PostMapping("/insertarPersona")
-    public  void  insertarPersona(@RequestBody persona Persona ) {
-        servicio.agregarPersona(Persona);
+    @PostMapping("/insertarPersonaPorCategoria/{categoria}")
+    public void insertarPersonaPorCategoria(@PathVariable String categoria, @RequestBody persona Persona) {
+        servicio.agregarPersonaPorCategoria(categoria, Persona);
     }
-
 }
