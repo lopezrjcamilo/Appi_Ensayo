@@ -1,19 +1,32 @@
 package com.example.demo.entity;
 
-public class persona {
+public class Persona {
+    private int id;
     private String nombre;
     private int edad;
-    private String correoElectronico;
+    private String correo;
     private String categoria;
 
-    public persona(String nombre, int edad, String correoElectronico, String categoria) {
+    public Persona() {
+    }
+
+    public Persona(int id, String nombre, int edad, String correo, String categoria) {
+        this.id = id;
         this.nombre = nombre;
         this.edad = edad;
-        this.correoElectronico = correoElectronico;
+        this.correo = correo;
         this.categoria = categoria;
     }
 
-    // Getters y setters (incluyendo el de la nueva propiedad "categoria")
+    // Getters y setters (incluyendo el de la nueva propiedad "id")
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -31,12 +44,12 @@ public class persona {
         this.edad = edad;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getCategoria() {
@@ -47,14 +60,15 @@ public class persona {
         this.categoria = categoria;
     }
 
-    // toString() (incluyendo la nueva propiedad "categoria")
+    // toString() (incluyendo la nueva propiedad "id")
 
     @Override
     public String toString() {
-        return "persona{" +
-                "nombre='" + nombre + '\'' +
+        return "Persona{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
                 ", edad=" + edad +
-                ", correoElectronico='" + correoElectronico + '\'' +
+                ", correo='" + correo + '\'' +
                 ", categoria='" + categoria + '\'' +
                 '}';
     }
